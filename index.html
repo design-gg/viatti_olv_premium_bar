@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="ad.size" content="width=600,height=100">
+	<title>600 olv</title>
+	<title>Viatti olv</title>
+
+	<style>
+		@font-face {
+			font-family: "Arial Narrow";
+			src: url("arial_narrow.woff2") format("woff2");
+			font-weight: 300;
+			font-style: normal;
+			font-stretch: normal;
+			font-display: auto;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		button {
+			padding: 0;
+			border: 0;
+			appearance: none;
+			background: none;
+			cursor: pointer;
+		}
+		.nowrap {
+			white-space: nowrap;
+		}
+		.viattiolvcd {
+			--c1: #FED702;
+			--c2: #2B353B;
+			--wDesk: 600px;
+			--wMob: 300px;
+			background-color: var(--c2);
+			font-family: "Arial Narrow";
+			text-decoration: none;
+			color: #000;
+			height: 60px;
+			display: flex;
+			align-items: flex-end;
+			scale: 1 0;
+		}
+		.viattiolvcd.viattiolvcd-showup {
+			scale: 1 1;
+		}
+		.viattiolvcd-inner {
+			width: var(--wDesk);			
+			margin-inline: auto;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			gap: 0px;						
+		}
+		.viattiolvcd-logo {
+			background-image: url("img/logo.webp");
+			background-repeat: no-repeat;
+			background-size: contain;			
+			width: 117px;
+			height: 38px;
+		}
+		.viattiolvcd-title {
+			background-image: url("img/title.webp");
+			background-repeat: no-repeat;
+			background-size: contain;			
+			width: 120px;
+			height: 39px;
+		}
+		.viattiolvcd-subtitle {
+			background-image: url("img/subtitle.webp");
+			background-repeat: no-repeat;
+			background-size: contain;			
+			width: 207px;
+			height: 10px;
+		}
+		.viattiolvcd-video {
+			background: url("img/screen.webp");
+			background-repeat: no-repeat;
+			background-size: 100% 100%;			
+			aspect-ratio: 89 / 50;
+			position: relative;
+			z-index: 0;
+		}
+		.viattiolvcd-button {
+			background-image: url("img/button.webp");
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			width: 105px;
+		}		
+		.viattiolvcd-video video {
+			display: block;
+			aspect-ratio: 89 / 50;
+			width: 100%;						
+		}
+		.viattiolvcd-about {
+			flex-grow: 1;
+			background-color: var(--c1);
+			height: 80px;
+			position: relative;
+			padding-inline: 20px;
+		}				
+		.viattiolvcd-tire {
+			margin-top: -24px;
+		}
+		.viattiolvcd-ligal {
+			font-size: 7px;
+			font-weight: 400;
+			line-height: 1;
+			margin-top: -23px;
+			height: 20px;
+			display: flex;;
+			align-items: flex-end;
+		}
+		.viattiolvcd-zeroplus {
+			width: 14px;
+			aspect-ratio: 1;
+			background-image: url("img/zeroplus.webp");
+			background-size: cover;
+			position: absolute;
+			right: 5px;
+			bottom: 5px;
+			z-index: 0;
+		}
+		.viattiolvcd-mute {
+			position: absolute;
+			width: 20px;
+			aspect-ratio: 1;
+			z-index: 1;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			bottom: 5px;
+			left: 5px;
+		}
+		.mute-off {
+			background-image: url("img/mute-off.webp");
+		}
+		.mute-on {
+			background-image: url("img/mute-on.webp");
+		}
+
+		.viattiolvcd {
+			transition: height .5s;
+		}		
+		.viattiolvcd.viattiolvcd-showup {
+			transform-origin: center 100%;
+			transition: height .5s, scale .5s;
+		}		
+		.viattiolvcd-video,
+		.viattiolvcd-about {
+			transition: height .5s;
+		}
+
+		.viattiolvcd-tire {
+			transition: opacity 0s, translate .6s, scale .4s .2s;			
+			transition-timing-function: linear, linear(0, 0.417 25.5%, 0.867 49.4%, 1 57.7%, 0.925 65.1%, 0.908 68.6%, 0.902 72.2%, 0.916 78.2%, 0.988 92.1%, 1), linear(0, 0.417 25.5%, 0.867 49.4%, 1 57.7%, 0.925 65.1%, 0.908 68.6%, 0.902 72.2%, 0.916 78.2%, 0.988 92.1%, 1);
+		}
+		.viattiolvcd-tireshow .viattiolvcd-tire {
+			opacity: 1 !important;
+			translate: 0 !important;
+			scale: 1 1 !important;
+			transform-origin: 50% 70%;
+		}
+
+		
+
+		@media (min-width:600px) {
+			.mob {
+				display: none;
+			}
+			.viattiolvcd-video {
+				height: 100px;
+			}
+			.viattiolvcd-about-inner {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				gap: 0 20px;
+				align-items: center;
+				height: 100%;
+				opacity: 1;
+				transition: opacity .5s 0s;
+			}
+			.viattiolvcd-subtitle,
+			.viattiolvcd-button {
+				opacity: 0;
+				height: 0;
+				overflow: hidden;
+			}
+			.viattiolvcd-logo,
+			.viattiolvcd-title {
+				scale: 1;
+				opacity: 1;
+				translate: 0 0;
+				transition: translate .6s, opacity 1s, scale .8s;
+			}
+			.viattiolvcd .viattiolvcd-video,
+			.viattiolvcd .viattiolvcd-about {
+				will-change: height;
+			}
+			/* hovering */
+			.viattiolvcd:hover {
+				height: 180px;
+			}
+			.viattiolvcd:hover .viattiolvcd-inner {
+				overflow: hidden;
+			}
+			.viattiolvcd:hover .viattiolvcd-video,
+			.viattiolvcd:hover .viattiolvcd-about {
+				height: 200px;
+			}
+			.viattiolvcd:hover .viattiolvcd-about-inner {
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 10px;
+				padding-top: 15px;
+			}
+			.viattiolvcd:hover .viattiolvcd-logo,
+			.viattiolvcd:hover .viattiolvcd-title,
+			.viattiolvcd:hover .viattiolvcd-subtitle,
+			.viattiolvcd:hover .viattiolvcd-button {
+				translate: 0 -30px;
+				opacity: 0;
+				scale: 1.1;
+				transition: none;
+			}
+
+			.viattiolvcd:hover .viattiolvcd-ligal {
+				opacity: 0;
+			}
+
+			.viattiolvcd:hover .viattiolvcd-subtitle {
+				height: 10px;
+			}
+			.viattiolvcd:hover .viattiolvcd-button {
+				height: 20px;
+			}
+			.viattiolvcd:hover .viattiolvcd-tire {
+				display: none;
+			}
+
+
+
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-logo,
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-title,
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-subtitle,
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-button {
+				opacity: 1;
+				translate: 0 0;
+				scale: 1;
+				transition: opacity .8s, translate .4s, scale .6s;
+			}
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-logo {
+				transition-delay: .5s;
+			}
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-title {
+				transition-delay: .6s;
+			}
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-subtitle {
+				transition-delay: .7s;
+			}
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-button {
+				transition-delay: .8s;
+			}
+
+
+			
+			.viattiolvcd-hovered.viattiolvcd:hover .viattiolvcd-ligal {
+				opacity: 1;
+				transition: opacity 1s;
+				transition-delay: 1s;
+			}
+
+
+
+			.viattiolvcd-unhover .viattiolvcd-about-inner {
+				opacity: 0;
+				transition: none;
+			}
+			.viattiolvcd-unhover .viattiolvcd-inner {
+				overflow: hidden;
+			}
+			.viattiolvcd-unhover .viattiolvcd-logo {
+				scale: .9;
+				opacity: 1;
+				translate: 30px 0;
+			}
+			.viattiolvcd-unhover .viattiolvcd-title {
+				scale: .9;
+				opacity: 1;
+				translate: -30px 0;
+			}
+		}
+		@media (max-width:600px) {
+			.viattiolvcd-inner {
+				width: var(--wMob);	
+				display: block;	
+				position: relative;
+			}
+			.viattiolvcd-tire {
+				display: none;
+			}
+			.viattiolvcd-about {
+				padding-inline: 5px;
+				padding-top: 10px;
+				width: 158px;
+				margin-left: 142px;
+				transition: margin-left .5s, width .5s, height .5s;
+			}
+			.viattiolvcd-about-inner {
+				height: 100%;
+			}
+			.viattiolvcd-logo {
+				background-image: url("img/logo-gor.webp");
+				width: 109px;
+				height: 9px;
+				margin-bottom: 5px;
+			}
+			.viattiolvcd-title {
+				background-image: url("img/title-gor.webp");
+				width: 135px;
+				height: 25px;
+			}
+			.viattiolvcd-subtitle {
+				background-image: url("img/subtitle-mob.webp");
+				width: 68px;
+				height: 0;				
+			}
+			.viattiolvcd-button {
+				background-image: url("img/button-mob.webp");
+				width: 70px;
+				opacity: 0;
+				height: 0;
+			}
+			.viattiolvcd-video {
+				width: 142px;
+				aspect-ratio: 16 / 9;
+				position: absolute;
+				left: 0;
+				z-index: 1;
+				transition: width .5s, left .5s;
+			}
+			.viattiolvcd-arrows {
+				background-image: url("img/arrows.webp");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: 12px 9px;
+				width: 25px;
+				aspect-ratio: 1;
+				position: absolute;
+				top: 0;
+				right: 0;
+				transform: rotate(0);
+				transition: transform 1s;
+			}
+			.viattiolvcd-ligal {
+				font-size: 6px;
+			}
+
+
+			/* expand */
+			.viattiolvcd-expand.viattiolvcd {
+				height: 180px;
+			}
+			.viattiolvcd-expand .viattiolvcd-about-inner {
+				visibility: hidden;			
+			}						
+			.viattiolvcd-expand .viattiolvcd-about {
+				margin-left: 0;
+				width: 300px;
+				height: 200px;
+			}
+			.viattiolvcd-expand .viattiolvcd-video {
+				width: 240px;
+				left: 30px;
+			}
+			.viattiolvcd-expand .viattiolvcd-ligal .mob {
+				display: none;
+			}
+
+			.viattiolvcd-expand .viattiolvcd-logo,
+			.viattiolvcd-expand .viattiolvcd-title,
+			.viattiolvcd-expand .viattiolvcd-subtitle,
+			.viattiolvcd-expand .viattiolvcd-button {
+				opacity: 0;
+				will-change: opacity;
+			}
+			.viattiolvcd-expand .viattiolvcd-logo {
+				background-image: url("img/logo.webp");
+				width: 70px;
+				height: 22px;
+				left: 5px;
+				top: 152px;
+				position: absolute;
+				z-index: 0;
+			}
+			.viattiolvcd-expand .viattiolvcd-title {
+				background-image: url("img/title.webp");
+				width: 90px;
+				height: 29px;
+				left: 50%;
+				translate: -50% 0;
+				top: 145px;
+				position: absolute;
+				z-index: 0;
+			}
+			.viattiolvcd-expand .viattiolvcd-subtitle {
+				height: 12px;				
+				right: 5px;
+				top: 145px;
+				position: absolute;
+				z-index: 0;
+			}
+			.viattiolvcd-expand .viattiolvcd-button {
+				height: 15px;
+				right: 5px;
+				top: 160px;
+				position: absolute;
+				z-index: 0;
+			}
+
+
+
+			/* expanded */
+			.viattiolvcd-expanded .viattiolvcd-about-inner {
+				visibility: visible;
+			}
+			.viattiolvcd-expanded .viattiolvcd-arrows {
+				transform: rotate(180deg);
+			}
+			.viattiolvcd-expanded .viattiolvcd-logo,
+			.viattiolvcd-expanded .viattiolvcd-title,
+			.viattiolvcd-expanded .viattiolvcd-subtitle,
+			.viattiolvcd-expanded .viattiolvcd-button {
+				opacity: 1;
+				transition: opacity 1s .25s;
+			}
+		}
+	</style>
+
+</head>
+<body style="margin: 0; display: flex; flex-direction: column; justify-content: flex-end; min-height: 100%;">
+	
+
+
+
+		<!-- banner START -->
+		<a href="" class="viattiolvcd"  id="click-url">
+			<div class="viattiolvcd-inner" id="inner">
+				<div class="viattiolvcd-video">
+					<video autoplay muted loop playsinline>
+						<source src="img/Viatti_summer_15s.mp4" type="video/mp4">
+					</video>
+					<button class="viattiolvcd-mute mute-off" onclick="viattiolvcd.toggleMute(this)" id="muteButton" aria-pressed="false" aria-label="Включить звук"></button>
+				</div>
+				<div class="viattiolvcd-about">
+					<div class="viattiolvcd-about-inner">
+						<div class="viattiolvcd-logo">
+							<!-- <img src="img/logo.webp" width="117" height="38" alt="" /> -->
+						</div>
+						<div class="viattiolvcd-tire" style="opacity: 0; translate: 0 -40px; scale: 1 1">
+							<img src="img/tire.webp" width="85" height="85" alt="" />
+						</div>
+						<div class="viattiolvcd-title">
+							<!-- <img src="img/title.webp" width="120" height="39" alt="" /> -->
+						</div>
+						<div class="viattiolvcd-subtitle">
+							<!-- <img src="img/subtitle.webp" width="207" height="10" alt="" />	 -->
+						</div>
+						<div class="viattiolvcd-button">
+							<!-- <img src="img/button.webp" width="105" height="20" alt="" /> -->
+						</div>
+					</div>	
+	
+					<div class="viattiolvcd-ligal">
+						* Страда 2&nbsp;&mdash; модель летних шин Viatti <br />
+						РЕКЛАМА. Рекламодатель: ООО &laquo;Торговый дом &laquo;Кама&raquo;, <br class="mob" /> ИНН 1651024807. Продукция KAMA TYRES
+					</div>
+					<div class="viattiolvcd-zeroplus"></div>
+					<div class="viattiolvcd-arrows mob" onclick="viattiolvcd.expand(this, true)"></div>
+				</div>
+	
+			</div>
+		</a>
+
+		<!-- banner END -->
+<script>
+    (() => {
+      const target = document.querySelector('#inner');
+      if (!target) return;
+
+      let prev = 0;
+      function measure() {
+        const h = target.offsetHeight;
+        if (h > 0 && h !== prev) {
+          prev = h;
+          parent.postMessage({ type: 'premiumbar-resize', height: h }, '*');
+        }
+      }
+      new ResizeObserver(() => { measure(); }).observe(target);
+      measure();
+
+      window.addEventListener('message', (e) => {
+        if (!e.data || typeof e.data.type !== 'string') return;
+        if (e.data.type === 'set-click-url') {
+          const a = document.querySelector('#click-url');
+          if (!a) return;
+          a.href = e.data.url;
+          if (e.data.target) a.target = e.data.target;
+          if (e.data.rel) a.rel = e.data.rel;
+        }
+      });
+    })();
+</script>		
+
+</body>
+<script src="index.js"></script>
+</html>
