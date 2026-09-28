@@ -4,17 +4,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="ad.size" content="width=600,height=100">
-	<title>600 olv</title>
-	<title>Viatti olv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+
+	<title>OLV Premium Bar</title>
 
 	<style>
 		@font-face {
-			font-family: "Arial Narrow";
-			src: url("arial_narrow.woff2") format("woff2");
-			font-weight: 300;
-			font-style: normal;
-			font-stretch: normal;
-			font-display: auto;
+  		font-family: "PT Sans Narrow", sans-serif;
+  		font-weight: 400;
+  		font-style: normal;
 		}
 		* {
 			box-sizing: border-box;
@@ -31,11 +31,11 @@
 		}
 		.viattiolvcd {
 			--c1: #FED702;
-			--c2: #2B353B;
+			--c2: #202020;
 			--wDesk: 600px;
 			--wMob: 300px;
 			background-color: var(--c2);
-			font-family: "Arial Narrow";
+			font-family: "PT Sans Narrow";
 			text-decoration: none;
 			color: #000;
 			height: 60px;
@@ -55,25 +55,25 @@
 			gap: 0px;						
 		}
 		.viattiolvcd-logo {
-			background-image: url("img/logo.webp");
+			background-image: url("img/logo.png");
 			background-repeat: no-repeat;
 			background-size: contain;			
 			width: 117px;
-			height: 38px;
+			height: 26px;
 		}
 		.viattiolvcd-title {
-			background-image: url("img/title.webp");
+			background-image: url("img/title.png");
 			background-repeat: no-repeat;
 			background-size: contain;			
-			width: 120px;
-			height: 39px;
+			width: 150px;
+			height: 40px;
 		}
 		.viattiolvcd-subtitle {
-			background-image: url("img/subtitle.webp");
+			background-image: url("img/subtitle.png");
 			background-repeat: no-repeat;
 			background-size: contain;			
-			width: 207px;
-			height: 10px;
+			width: 200px;
+			height: 25px;
 		}
 		.viattiolvcd-video {
 			background: url("img/screen.webp");
@@ -107,7 +107,7 @@
 		.viattiolvcd-ligal {
 			font-size: 7px;
 			font-weight: 400;
-			line-height: 1;
+			line-height: 1.1;
 			margin-top: -23px;
 			height: 20px;
 			display: flex;;
@@ -116,7 +116,7 @@
 		.viattiolvcd-zeroplus {
 			width: 14px;
 			aspect-ratio: 1;
-			background-image: url("img/zeroplus.webp");
+			background-image: url("img/zeroplus.png");
 			background-size: cover;
 			position: absolute;
 			right: 5px;
@@ -164,7 +164,7 @@
 			transform-origin: 50% 70%;
 		}
 
-		
+			/*ДЕСКТОП*/	
 
 		@media (min-width:600px) {
 			.mob {
@@ -177,7 +177,7 @@
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
-				gap: 0 20px;
+				gap: 0 10px;
 				align-items: center;
 				height: 100%;
 				opacity: 1;
@@ -217,6 +217,10 @@
 				gap: 10px;
 				padding-top: 15px;
 			}
+			.viattiolvcd:hover .mob {
+				display: flex;  
+			}
+
 			.viattiolvcd:hover .viattiolvcd-logo,
 			.viattiolvcd:hover .viattiolvcd-title,
 			.viattiolvcd:hover .viattiolvcd-subtitle,
@@ -226,13 +230,17 @@
 				scale: 1.1;
 				transition: none;
 			}
+			.viattiolvcd:hover .viattiolvcd-title {
+				width: 204px;
+				height: 53px;
+			}
 
 			.viattiolvcd:hover .viattiolvcd-ligal {
 				opacity: 0;
 			}
 
 			.viattiolvcd:hover .viattiolvcd-subtitle {
-				height: 10px;
+				height: 27px;
 			}
 			.viattiolvcd:hover .viattiolvcd-button {
 				height: 20px;
@@ -293,6 +301,11 @@
 				translate: -30px 0;
 			}
 		}
+
+
+		/*МОБИЛЬНЫЙ ФОРМАТ*/
+
+
 		@media (max-width:600px) {
 			.viattiolvcd-inner {
 				width: var(--wMob);	
@@ -313,20 +326,21 @@
 				height: 100%;
 			}
 			.viattiolvcd-logo {
-				background-image: url("img/logo-gor.webp");
-				width: 109px;
+				background-image: url("img/logo.png");
+				width: 42px;
 				height: 9px;
 				margin-bottom: 5px;
 			}
 			.viattiolvcd-title {
-				background-image: url("img/title-gor.webp");
-				width: 135px;
-				height: 25px;
+				background-image: url("img/title.png");
+				width: 120px;
+				height: 32px;
 			}
 			.viattiolvcd-subtitle {
-				background-image: url("img/subtitle-mob.webp");
-				width: 68px;
-				height: 0;				
+				background-image: url("img/subtitle.png");
+				width: 84px;
+				height: 11px;		
+				opacity: 0;		
 			}
 			.viattiolvcd-button {
 				background-image: url("img/button-mob.webp");
@@ -373,8 +387,8 @@
 				height: 200px;
 			}
 			.viattiolvcd-expand .viattiolvcd-video {
-				width: 240px;
-				left: 30px;
+				width: 250px;
+				left: 25px;
 			}
 			.viattiolvcd-expand .viattiolvcd-ligal .mob {
 				display: none;
@@ -388,28 +402,28 @@
 				will-change: opacity;
 			}
 			.viattiolvcd-expand .viattiolvcd-logo {
-				background-image: url("img/logo.webp");
-				width: 70px;
-				height: 22px;
-				left: 5px;
-				top: 152px;
+				background-image: url("img/logo.png");
+				width: 73px;
+				height: 15px;
+				left: 15px;
+				top: 157px;
 				position: absolute;
 				z-index: 0;
 			}
 			.viattiolvcd-expand .viattiolvcd-title {
-				background-image: url("img/title.webp");
+				background-image: url("img/title.png");
 				width: 90px;
-				height: 29px;
-				left: 50%;
+				height: 24px;
+				left: 47%;
 				translate: -50% 0;
-				top: 145px;
+				top: 150px;
 				position: absolute;
 				z-index: 0;
 			}
 			.viattiolvcd-expand .viattiolvcd-subtitle {
 				height: 12px;				
-				right: 5px;
-				top: 145px;
+				right: 15px;
+				top: 156px;
 				position: absolute;
 				z-index: 0;
 			}
@@ -419,6 +433,7 @@
 				top: 160px;
 				position: absolute;
 				z-index: 0;
+				display: none;
 			}
 
 
@@ -451,23 +466,23 @@
 			<div class="viattiolvcd-inner" id="inner">
 				<div class="viattiolvcd-video">
 					<video autoplay muted loop playsinline>
-						<source src="img/Viatti_summer_15s.mp4" type="video/mp4">
+						<source src="img/video.mp4" type="video/mp4">
 					</video>
 					<button class="viattiolvcd-mute mute-off" onclick="viattiolvcd.toggleMute(this)" id="muteButton" aria-pressed="false" aria-label="Включить звук"></button>
 				</div>
 				<div class="viattiolvcd-about">
 					<div class="viattiolvcd-about-inner">
 						<div class="viattiolvcd-logo">
-							<!-- <img src="img/logo.webp" width="117" height="38" alt="" /> -->
+							<!-- <img src="img/logo.png" width="117" height="38" alt="" /> -->
 						</div>
 						<div class="viattiolvcd-tire" style="opacity: 0; translate: 0 -40px; scale: 1 1">
 							<img src="img/tire.webp" width="85" height="85" alt="" />
 						</div>
 						<div class="viattiolvcd-title">
-							<!-- <img src="img/title.webp" width="120" height="39" alt="" /> -->
+							<!-- <img src="img/title.png" width="150" height="40" alt="" /> -->
 						</div>
 						<div class="viattiolvcd-subtitle">
-							<!-- <img src="img/subtitle.webp" width="207" height="10" alt="" />	 -->
+							<!-- <img src="img/subtitle.png" width="217" height="29" alt="" />	 -->
 						</div>
 						<div class="viattiolvcd-button">
 							<!-- <img src="img/button.webp" width="105" height="20" alt="" /> -->
@@ -475,11 +490,10 @@
 					</div>	
 	
 					<div class="viattiolvcd-ligal">
-						* Страда 2&nbsp;&mdash; модель летних шин Viatti <br />
 						РЕКЛАМА. Рекламодатель: ООО &laquo;Торговый дом &laquo;Кама&raquo;, <br class="mob" /> ИНН 1651024807. Продукция KAMA TYRES
 					</div>
 					<div class="viattiolvcd-zeroplus"></div>
-					<div class="viattiolvcd-arrows mob" onclick="viattiolvcd.expand(this, true)"></div>
+					<!-- <div class="viattiolvcd-arrows mob" onclick="viattiolvcd.expand(this, true)"></div> -->
 				</div>
 	
 			</div>
